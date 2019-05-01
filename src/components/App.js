@@ -2,6 +2,7 @@ import React from 'react';
 
 import UserList from './UserList.component';
 import UserDetail from './UserDetail.component';
+import Todo from './Todo.component';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <UserList />
       <h2>User Details</h2>
       <UserDetail />
+      <Todo />
     </div>
   );
 }

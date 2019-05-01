@@ -6,11 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { createLogger } from 'redux-logger';
-import { logger, error } from './middleware/index';
+import thunk from 'redux-thunk';
+import { loggerMiddleware, errorMiddleware, httpMiddleware } from './middleware/index';
 import allReducers from './reducers';
 
 // we can pass `n` number of middlwares for ex: logging, error msg handle etc..
-const middleware = applyMiddleware(logger, error, createLogger());
+const middleware = applyMiddleware(thunk, loggerMiddleware, errorMiddleware, httpMiddleware, createLogger());
 const store = createStore(allReducers, middleware);
 
 ReactDOM.render(

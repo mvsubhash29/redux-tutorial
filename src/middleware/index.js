@@ -1,7 +1,9 @@
-import logger from './logger.middleware';
-import error from './error.middleware';
+import loggerMiddleware from './logger.middleware';
+import errorMiddleware from './error.middleware';
+import httpMiddleware from './http.middleware';
 
 export {
-  logger,
-  error
+  loggerMiddleware,
+  errorMiddleware,
+  httpMiddleware
 }
