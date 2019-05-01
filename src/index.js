@@ -4,10 +4,13 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { logger, error } from './middleware/index';
 import allReducers from './reducers';
 
-const store = createStore(allReducers);
+// we can pass `n` number of middlwares for ex: logging, error msg handle etc..
+const middleware = applyMiddleware(logger, error);
+const store = createStore(allReducers, middleware);
 
 ReactDOM.render(
   <Provider store={store}>
